@@ -13,6 +13,7 @@
  Think of components as reusable, self-contained blocks of code that control a specific part of your app, like a login form, navigation bar, or user profile card.
 
 ----- Lesson #1
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -31,6 +32,123 @@ AppComponent Class: This is where the logic resides. The title property is bound
 my-first-component.component.spec.ts ( for testing )
 
 To create component -> ng generate component my-first-component
+
 -----
 
-two-way data binding:
+two-way data binding: ( data binding and directives )
+In Angular, data binding allows communication between the component's TypeScript logic (the class) and its HTML template (the view). Angular provides four types of data binding:
+
+Interpolation (One-way data binding from class to view)
+Event Binding (One-way binding from view to class)
+Property Binding (One-way data binding from class to an element property)
+Two-way Data Binding (Synchronization between view and class)
+
+--
+
+Interpolation (One-way Binding)
+Interpolation allows you to display data from the component's class inside the HTML template.
+.ts:
+export class AppComponent {
+  title: string = 'Welcome to Angular!';
+  year: number = 2024;
+}
+.html:
+<h1>{{ title }}</h1>
+<p>The year is {{ year }}</p>
+
+--
+
+Event binding allows you to handle user actions (like clicks, key presses, etc.)
+in the component’s logic.
+.ts:
+export class AppComponent {
+  message: string = '';
+
+  handleClick() {
+    this.message = 'Button was clicked!';
+  }
+}
+.html:
+<button (click)="handleClick()">Click Me</button>
+<p>{{ message }}</p>
+
+--
+
+Property binding is used to bind values from the component class to HTML element properties,
+such as src, href, disabled, etc.
+.ts:
+export class AppComponent {
+  buttonDisabled: boolean = true;
+}
+.html:
+<button [disabled]="buttonDisabled">Click Me</button>
+
+--
+
+Two-way data binding allows the view and the class to stay in sync—changes in the input
+field automatically update the class variable and vice versa.
+.ts:
+export class AppComponent {
+  name: string = '';
+}
+.html:
+<input [(ngModel)]="name" placeholder="Enter your name">
+<p>Hello, {{ name }}!</p>
+
+
+
+
+----- Directives
+
+Directives are special instructions in Angular that let you modify the DOM.
+There are two main types:
+
+Structural Directives: Change the structure of the DOM (e.g., *ngIf, *ngFor).
+Attribute Directives: Change the appearance or behavior of elements (e.g., ngClass, ngStyle).
+
+--
+
+The *ngIf directive is used to conditionally render elements based on a boolean expression.
+.ts: { isLoggedIn: boolean = false; }
+.html:
+<button (click)="isLoggedIn = !isLoggedIn">
+  {{ isLoggedIn ? 'Logout' : 'Login' }}
+</button>
+
+<p *ngIf="isLoggedIn">Welcome back, user!</p>
+
+--
+
+The *ngFor directive allows you to loop through an array and render a list of items.
+
+.ts: { items: string[] = ['Item 1', 'Item 2', 'Item 3']; }
+.html:
+<ul>
+  <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+
+--
+
+ngClass Directive - The ngClass directive allows you to dynamically apply
+classes to an element based on a condition.
+.ts: isActive: boolean = true;
+.html:
+<p [ngClass]="{ 'active': isActive, 'inactive': !isActive }">This is a toggleable paragraph.</p>
+<button (click)="isActive = !isActive">Toggle Class</button>
+
+--
+
+ngStyle Directive - The ngStyle directive dynamically applies inline styles based on component properties.
+
+.ts: isHighlighted: boolean = false;
+.html:
+<p [ngStyle]="{ 'color': isHighlighted ? 'red' : 'black' }">This text changes color.</p>
+<button (click)="isHighlighted = !isHighlighted">Toggle Highlight</button>
+
+
+
+--
+
+
+
+--

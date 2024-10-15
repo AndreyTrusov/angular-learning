@@ -2,3 +2,23 @@
 
 <input [(ngModel)]="value" placeholder="Enter a value">
 <h3>Your value is - {{value}}</h3>
+
+<button (click)="handleClick()">Click Me</button>
+<p>{{ value }}</p>
+
+<button (click)="clickToAppearList()">Click To appear list</button>
+<button (click)="isBul = !isBul">Click To appear list</button> <!-- THE SAME AS ABOVE-->
+<ul *ngIf="isBul">
+  <li *ngFor="let item of items" >{{ item }}</li>
+</ul>
+
+<hr>
+
+<p [ngClass]="{ 'active': isActive, 'inactive': !isActive }">This is a toggleable paragraph.</p>
+<button (click)="isActive = !isActive">Toggle Class</button>
+
+<hr>
+
+<p [ngStyle]="{ 'color': isHighlighted ? 'red' : 'black' }">This text changes color.</p>
+<button (click)="isHighlighted = !isHighlighted">Toggle Highlight</button>
+
