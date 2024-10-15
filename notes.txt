@@ -1,0 +1,36 @@
+ To start project -- ng serve
+ To generate new component -- ng generate component "name"
+
+
+ What is a Component?
+
+ In Angular, components are the core pieces of the UI. Each component controls a specific view (part of the interface) and contains:
+
+ HTML: To define the layout.
+ CSS: To style the layout.
+ TypeScript: To handle logic.
+
+ Think of components as reusable, self-contained blocks of code that control a specific part of your app, like a login form, navigation bar, or user profile card.
+
+----- Lesson #1
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'my-angular-app';
+}
+
+ @Component Decorator: This is how you define a component. It tells Angular what HTML, CSS, and other settings to use.
+
+ selector: This is the custom HTML tag you use to insert this component into your HTML, like <app-root></app-root>.
+ templateUrl: Points to the HTML file of the component.
+styleUrls: Links to the CSS file for styling.
+AppComponent Class: This is where the logic resides. The title property is bound to the template. Right now, it says 'my-angular-app'.
+my-first-component.component.spec.ts ( for testing )
+
+To create component -> ng generate component my-first-component
+-----
+
+two-way data binding:
