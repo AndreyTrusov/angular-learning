@@ -1,5 +1,6 @@
  To start project -- ng serve
  To generate new component -- ng generate component "name"
+ Command to create service --> ng generate service my-service | Creates - my-service.service.ts
 
 
  What is a Component?
@@ -145,10 +146,30 @@ ngStyle Directive - The ngStyle directive dynamically applies inline styles base
 <p [ngStyle]="{ 'color': isHighlighted ? 'red' : 'black' }">This text changes color.</p>
 <button (click)="isHighlighted = !isHighlighted">Toggle Highlight</button>
 
+-----
+
+Angular Services & Dependency Injection
+
+Service is an Angular class that contains reusable logic or data that can be shared
+across multible components. Instead of duplicating code, you can create a service to handle tasks like:
+- Fetching data from an API
+- Sharing data between components
+- Handling business logic
+
+Services help keep your components focused on the UI and user interactions, while the service manages complex logic or data.
+
+Dependency Injection - Angular has a built-in mechanism that allows components and services to share dependencies.
+This means - no need to manually create instances of services—Angular does it for you and "injects" them where needed.
+
+Command to create service --> ng generate service my-service | Creates - my-service.service.ts
+
+@Injectable Decorator
+
+@Injectable({           // @Injectable decorator marks this class as a service
+  providedIn: 'root'    // means this service will be provided globally
+})
+
+In a real-world app, services are often used to fetch data from external APIs.
+You’d typically use Angular’s HttpClient service for this.
 
 
---
-
-
-
---
