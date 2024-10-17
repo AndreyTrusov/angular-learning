@@ -13,6 +13,9 @@
 
  Think of components as reusable, self-contained blocks of code that control a specific part of your app, like a login form, navigation bar, or user profile card.
 
+@Component:
+standalone - When provided the value true, this tells Angular that the component does not need to be declared in an NgModule
+imports - Allows developers to declare what dependencies will be used in the component
 ----- Lesson #1
 
 @Component({
@@ -156,6 +159,22 @@ across multible components. Instead of duplicating code, you can create a servic
 - Sharing data between components
 - Handling business logic
 
+implementation:
+@Injectable({
+  providedIn: 'root',
+})
+class CalculatorService {
+  add(x: number, y: number) {
+    return x + y;
+  }
+}
+
+component.ts:
+export class Receipt {
+  private calculatorService = inject(CalculatorService);
+  totalCost = this.calculatorService.add(50, 25);
+}
+
 Services help keep your components focused on the UI and user interactions, while the service manages complex logic or data.
 
 Dependency Injection - Angular has a built-in mechanism that allows components and services to share dependencies.
@@ -171,5 +190,66 @@ Command to create service --> ng generate service my-service | Creates - my-serv
 
 In a real-world app, services are often used to fetch data from external APIs.
 You’d typically use Angular’s HttpClient service for this.
+
+-----
+
+Angular Routing—a key feature for building "single-page applications (SPAs)"
+- that allow navigation between different views or pages without reloading the entire app.
+- allows you to navigate between different components or views
+
+
+-----
+
+Types of Directives in Angular - They allow you to attach behavior to elements in the DOM or manipulate those elements in various ways
+
+Component Directives - A component directive controls a chunk of the UI by associating a template with it
+Structural Directives * (asterisk) ( *ngiF *ngFor *ngSwitch ) - change the structure of the DOM by adding or removing elements
+Attribute Directives - Attribute directives change the appearance or behavior of an existing element, component, or other directive.
+    - [ngClass] - ngClass: Dynamically adds/removes classes from an element.
+    - [ngStyle] - ngStyle: Applies dynamic inline styles to an element.
+
+Custom Directives - encapsulate custom behaviors
+-changes the background color of an element when the user hovers over it:
+
+import { Directive, ElementRef, HostListener } from '@angular/core';
+
+@Directive({
+  selector: '[appHoverHighlight]'
+})
+export class HoverHighlightDirective {
+  constructor(private el: ElementRef) {}
+
+  @HostListener('mouseenter') onMouseEnter() {
+    this.highlight('yellow');
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this.highlight('');
+  }
+
+  private highlight(color: string) {
+    this.el.nativeElement.style.backgroundColor = color;
+  }
+}
+
+<p appHoverHighlight>Hover over this text to see the highlight.</p>
+
+
+-----
+
+NgModules - provide a way to group components, directives, pipes and services.
+- helping modularize your app
+- lazy loading - parts of app are loaded only when needed
+- Every Angular application must have at least one NgModule, typically named AppModule.
+
+
+
+
+
+
+
+
+
+
 
 
