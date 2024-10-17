@@ -10,6 +10,7 @@ import { AboutComponent } from './about/about.component';
 import {MyServiceService} from './my-service.service';
 import {ComponentOneComponent} from './component-one/component-one.component';
 import {ComponentTwoComponent} from './component-two/component-two.component';
+import {TestServiceConnectionComponent} from './test-service-connection/test-service-connection.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },       // Default route
@@ -19,7 +20,7 @@ const routes: Routes = [
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MyFirstComponentComponent, MySecondCComponent, TestServiceComponent, NgForOf, RouterLink, ComponentOneComponent, ComponentTwoComponent],
+  imports: [RouterOutlet, MyFirstComponentComponent, MySecondCComponent, TestServiceComponent, NgForOf, RouterLink, ComponentOneComponent, ComponentTwoComponent, TestServiceConnectionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {CalculatorServiceService} from '../calculator-service.service';
 
 @Component({
   selector: 'app-my-first-component',
@@ -12,4 +13,7 @@ import {FormsModule} from '@angular/forms';
 })
 export class MyFirstComponentComponent {
   name: string = '';
+
+  private calculatorService = inject(CalculatorServiceService);
+  totalCost: number = this.calculatorService.add(10, 50);
 }
