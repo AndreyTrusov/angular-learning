@@ -1,26 +1,33 @@
-import { Component} from '@angular/core';
-import {RouterLink, RouterOutlet, Routes} from '@angular/router';
+import {Component} from '@angular/core';
+import {RouterLink, RouterLinkActive, RouterOutlet, Routes} from '@angular/router';
 import {MyFirstComponentComponent} from './my-first-component/my-first-component.component';
 import {MySecondCComponent} from './my-second-c/my-second-c.component';
 import {TestServiceComponent} from './test-service/test-service.component';
-import {NgForOf} from '@angular/common';
+import {CommonModule, NgForOf} from '@angular/common';
 
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import {MyServiceService} from './my-service.service';
 import {ComponentOneComponent} from './component-one/component-one.component';
 import {ComponentTwoComponent} from './component-two/component-two.component';
 import {TestServiceConnectionComponent} from './test-service-connection/test-service-connection.component';
 
-const routes: Routes = [
-  { path: '', component: HomeComponent },       // Default route
-  { path: 'about', component: AboutComponent }, // Route to the about page
-];
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MyFirstComponentComponent, MySecondCComponent, TestServiceComponent, NgForOf, RouterLink, ComponentOneComponent, ComponentTwoComponent, TestServiceConnectionComponent],
+  imports: [
+    RouterOutlet,
+    MyFirstComponentComponent,
+    MySecondCComponent,
+    TestServiceComponent,
+    NgForOf,
+    RouterLink,
+    ComponentOneComponent,
+    ComponentTwoComponent,
+    TestServiceConnectionComponent,
+    CommonModule,
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
