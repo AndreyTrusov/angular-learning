@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {MyServiceService} from '../my-service.service';
+import {MyServiceService} from '../../../core/configs/my-service.service';
 
 @Component({
   selector: 'app-component-two',

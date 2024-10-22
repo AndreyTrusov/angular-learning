@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {CalculatorServiceService} from '../calculator-service.service';
+import {CalculatorServiceService} from '../../configs/calculator-service.service';
 
 @Component({
   selector: 'app-test-service-connection',

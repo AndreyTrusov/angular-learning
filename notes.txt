@@ -247,8 +247,13 @@ NgModules - provide a way to group components, directives, pipes and services.
 
 Rotes:
 
+we are putting providers into main.ts -> then we are making different file just for routing - app.routing.ts
 
-
+also in app.config.app we add - export const appConfig: ApplicationConfig
+do not use href="" instead use routerLink="/tasks" and dont forget to import it in component - imports:[RouterLink]
+routerLinkActive - attach class into active selected <a>
+path: 'users/:userID' - where ":" tell us it is dynamic
+[routerLink] = "['/users', user().id]"
 
 
 

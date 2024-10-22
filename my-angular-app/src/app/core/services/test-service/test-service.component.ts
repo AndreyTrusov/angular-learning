@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MyServiceService} from '../my-service.service';
+import {MyServiceService} from '../../configs/my-service.service';
 import {NgForOf} from '@angular/common';
 
 @Component({
