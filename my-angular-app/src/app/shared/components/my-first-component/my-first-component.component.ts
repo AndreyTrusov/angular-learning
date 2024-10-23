@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {CalculatorServiceService} from '../calculator-service.service';
+import {CalculatorServiceService} from '../../../core/configs/calculator-service.service';
 
 @Component({
   selector: 'app-my-first-component',
