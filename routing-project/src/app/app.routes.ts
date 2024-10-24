@@ -4,10 +4,16 @@ import {TasksComponent} from "./tasks/tasks.component";
 import {NoTaskComponent} from "./tasks/no-task/no-task.component";
 import {UserTasksComponent} from "./users/user-tasks/user-tasks.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
+import {UserNameResolver} from "./users/user-tasks/UserNameResolver";
 
 export const ROUTES: Routes = [
   {path: 'tasks', component: TasksComponent},
-  {path: 'users/:userId', component: UserTasksComponent, children: userRoutes},
+  {path: 'users/:userId', component: UserTasksComponent, children: userRoutes,
+    data: {message: 'Hello'}, // static data
+    resolve: {
+    userName: UserNameResolver, // if withComponentInputBinding activated in config
+    } // dynamic data
+  },
   {path: '', component: NoTaskComponent},
   {path: '**', component: NotFoundComponent},
 ]
