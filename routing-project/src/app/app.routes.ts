@@ -22,7 +22,7 @@ export const ROUTES: Routes = [
     component: UserTasksComponent,
     children: userRoutes,
     data: {message: 'Hello'}, // static data
-    runGuardsAndResolvers: "paramsChange",
+    runGuardsAndResolvers: "always",
     resolve: {
       userName: UserNameResolver, // if withComponentInputBinding activated in config
       userTasks: resolveUserTasks,
