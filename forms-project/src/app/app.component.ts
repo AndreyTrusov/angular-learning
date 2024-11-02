@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
 import {LoginComponentReactive} from "./auth/login-reactive/login.component.reactive";
+
 
 @Component({
   selector: 'app-root',
